@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <script th:src="@{/js/jquery.validate.js}"></script>
+
+</head>
+<body>
+<th:block th:fragment="main-panel">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Dashboard</a>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+
+            <form th:action="@{/logout}" method="post">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">LOGOUT</button>
+            </form>
+        </div>
+    </nav>
+</th:block>
+<th:block th:fragment="add-user">
+    <div>
+        <h5 class="text-center" style="font-size: 25px">New User</h5>
+        <form  id="register" action="/insert_user" method="post">
+            <div class="form-group">
+                <label for="name"> Name: </label>
+                <input type="text" class="form-control" required id="name" placeholder="Enter Name" name="name"/>
+            </div>
+            <div class="form-group">
+                <label for="login">Login: </label>
+                <input type="text" class="form-control"  required id="login" placeholder="Enter Login" name="login"/>
+            </div>
+            <div class="form-group">
+                <label for="password">Password: </label>
+                <input type="password" class="form-control"  required id="password" placeholder="Enter Password"
+                       name="password"/>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Add</button>
+        </form>
+    </div>
+</th:block>
+<th:block th:fragment="add-associate">
+    <div>
+        <h5 class="text-center" style="font-size: 25px">New Associate</h5>
+        <form id="register" action="/user/associate_insert" method="post">
+
+            <div class="form-group">
+                <label for="name"> Name: </label>
+                <input type="text" class="form-control" required id="name"
+                       name="name"/>
+            </div>
+            <div class="form-group">
+                <label for="date">Date: </label>
+                <input type="date" class="form-control" required id="date"
+                       name="date"/>
+            </div>
+            <div class="form-group">
+                <label for="address">Address: </label>
+                <input type="text" class="form-control" required id="address"
+                       name="address"/>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone: </label>
+                <input type="number" class="form-control" required id="phone"
+                       name="phone"/>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Add</button>
+        </form>
+    </div>
+</th:block>
+<th:block th:fragment="add-customer">
+    <div>
+        <form id="register" action="/user/customer_insert" method="post">
+            <div class="form-group">
+                <label for="organizationName">Organization: </label>
+                <input type="text" class="form-control" required id="organizationName" name="organizationName"/>
+            </div>
+            <div class="form-group">
+                <label for="nameManager">Name: </label>
+                <input type="text" class="form-control" required id="nameManager" name="nameManager"/>
+            </div>
+            <div class="form-group">
+                <label for="address">Address: </label>
+                <input type="text" class="form-control"required id="address" name="address"/>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone: </label>
+                <input type="number" class="form-control" required id="phone" name="phone"/>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Add</button>
+        </form>
+    </div>
+</th:block>
+</body>
+</html>

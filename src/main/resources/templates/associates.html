@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Show All Associates</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <link th:href="@{/css/aplikasi.css}" type="text/css" rel="stylesheet"/>
+    <link th:href="@{/css/tabs.css}" type="text/css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script th:src="@{/js/jquery.validate.js}"></script>
+
+</head>
+<body>
+<div th:replace="fragments/htmlFragments::main-panel"></div>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item"><a class="nav-link " href="/admin/users_all">Users
+                    <span class="sr-only">(current)</span>
+                </a></li>
+                <li class="nav-item"><a class="nav-link active" href="/user/associates_all">Associates</a>
+                </li>
+                <li class="nav-item"><a class="nav-link " href="/user/customers_all">Customers</a>
+                </li>
+                <li class="nav-item"><a class="nav-link " href="/user/products_all">Products</a>
+                </li>
+                <li class="nav-item"><a class="nav-link " href="/user/order_details_all">Order Details</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div style="margin-left:18%">
+    <div class="notebook">
+        <input type="radio" name="notebook1" id="notebook1_1" checked>
+        <label for="notebook1_1">Associates Table</label>
+
+        <input type="radio" name="notebook1" id="notebook1_2">
+        <label for="notebook1_2">New Associate</label>
+
+        <div>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col" colspan=2>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="associate : ${associates}">
+                    <td th:text="${associate.id}">Id</td>
+                    <td th:text="${associate.name}">Name</td>
+                    <td th:text="${associate.date}">Date</td>
+                    <td th:text="${associate.address}">Address</td>
+                    <td th:text="${associate.phone}">Phone</td>
+
+                    <td>
+                        <a href="#" class="btn btn-primary btn-block" th:id="${associate.id}" data-toggle="modal"
+                           th:attr = "data-target='#'+${associate}">Update
+                        </a>
+                        <div class="modal fade" th:attr="id=${associate}" tabindex="-1" role="dialog" aria-labelledby="basicModal"
+                             aria-hidden="true">
+
+                            <div class="modal-dialog">
+
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+
+                                        <h4 class="modal-title" id="myModalLabel">Update Associate </h4>
+
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                                            <span aria-hidden="true">×</span>
+
+                                        </button>
+
+                                    </div>
+
+                                    <div class="modal-body">
+
+                                        <form  id="update" action="/user/associate_update" method="post">
+                                            <div class="form group">
+                                                <label for="associateId">Id:</label>
+                                                <input type="text" class="form-control" required id="associateId" readonly="readonly" name="associateId"
+                                                       th:value="${associate.id}"/>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="name"> Name: </label>
+                                                <input type="text" class="form-control" required id="name" name="name"
+                                                       th:value="${associate.name}"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="date">Date: </label>
+                                                <input type="date" class="form-control" required id="date" name="date"
+                                                       th:value="${associate.date}"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="address">Address: </label>
+                                                <input type="text" class="form-control" required id="address"
+                                                       name="address"
+                                                       th:value="${associate.address}"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="phone">Phone: </label>
+                                                <input type="number" class="form-control" required id="phone"
+                                                       name="phone"
+                                                       th:value="${associate.phone}"/>
+                                            </div>
+
+                                            <button type="submit" class="btn btn-primary btn-block">Edit</button>
+                                        </form>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <form th:action="@{/user/associate_delete/{associateId} (associateId =${associate.id})}">
+                            <button type="submit" class="btn btn-primary btn-block">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:replace="fragments/htmlFragments::add-associate"></div>
+    </div>
+</div>
+</body>
+</html>
