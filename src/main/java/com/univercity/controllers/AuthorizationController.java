@@ -45,7 +45,10 @@ public class AuthorizationController {
 		Role role = roleService.getByName(name_Role);
 		roles.add(role);
 		User user = new User(name, login, password, roles);
-		userService.saveUser(user);
+		 User newUser = userService.saveUser(user);
+		 if (newUser == null){
+		 	return "redirect:/insert_user";
+		 }
 		return "login";
 	}
 }
