@@ -14,58 +14,58 @@
             </ul>
 
             <form th:action="@{/logout}" method="post">
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">LOGOUT</button>
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Выйти</button>
             </form>
         </div>
     </nav>
 </th:block>
 <th:block th:fragment="add-user">
     <div>
-        <h5 class="text-center" style="font-size: 25px">New User</h5>
+        <h5 class="text-center" style="font-size: 25px">Новый пользователь</h5>
         <form  id="register" action="/insert_user" method="post">
             <div class="form-group">
-                <label for="name"> Name: </label>
-                <input type="text" class="form-control" required id="name" placeholder="Enter Name" name="name"/>
+                <label for="name"> Имя: </label>
+                <input type="text" class="form-control" required id="name" placeholder="Введите имя" name="name"/>
             </div>
             <div class="form-group">
-                <label for="login">Login: </label>
-                <input type="text" class="form-control"  required id="login" placeholder="Enter Login" name="login"/>
+                <label for="login">Логин: </label>
+                <input type="text" class="form-control"  required id="login" placeholder="Введите логин" name="login"/>
             </div>
             <div class="form-group">
-                <label for="password">Password: </label>
-                <input type="password" class="form-control"  required id="password" placeholder="Enter Password"
+                <label for="password">Пароль: </label>
+                <input type="password" class="form-control"  required id="password" placeholder="Введите пароль"
                        name="password"/>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Add</button>
+            <button type="submit" class="btn btn-primary btn-block">ОК</button>
         </form>
     </div>
 </th:block>
 <th:block th:fragment="add-associate">
     <div>
-        <h5 class="text-center" style="font-size: 25px">New Associate</h5>
+        <h5 class="text-center" style="font-size: 25px">Новый сотрудник </h5>
         <form id="register" action="/user/associate_insert" method="post">
 
             <div class="form-group">
-                <label for="name"> Name: </label>
+                <label for="name"> Имя: </label>
                 <input type="text" class="form-control" required id="name"
                        name="name"/>
             </div>
             <div class="form-group">
-                <label for="date">Date: </label>
+                <label for="date">Дата: </label>
                 <input type="date" class="form-control" required id="date"
                        name="date"/>
             </div>
             <div class="form-group">
-                <label for="address">Address: </label>
+                <label for="address">Адрес: </label>
                 <input type="text" class="form-control" required id="address"
                        name="address"/>
             </div>
             <div class="form-group">
-                <label for="phone">Phone: </label>
+                <label for="phone">Телефон: </label>
                 <input type="number" class="form-control" required id="phone"
                        name="phone"/>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Add</button>
+            <button type="submit" class="btn btn-primary btn-block">ОК</button>
         </form>
     </div>
 </th:block>
@@ -73,22 +73,22 @@
     <div>
         <form id="register" action="/user/customer_insert" method="post">
             <div class="form-group">
-                <label for="organizationName">Organization: </label>
+                <label for="organizationName">Организация: </label>
                 <input type="text" class="form-control" required id="organizationName" name="organizationName"/>
             </div>
             <div class="form-group">
-                <label for="nameManager">Name: </label>
+                <label for="nameManager">Имя: </label>
                 <input type="text" class="form-control" required id="nameManager" name="nameManager"/>
             </div>
             <div class="form-group">
-                <label for="address">Address: </label>
+                <label for="address">Адрес: </label>
                 <input type="text" class="form-control"required id="address" name="address"/>
             </div>
             <div class="form-group">
-                <label for="phone">Phone: </label>
+                <label for="phone">Телефон: </label>
                 <input type="number" class="form-control" required id="phone" name="phone"/>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Add</button>
+            <button type="submit" class="btn btn-primary btn-block">ОК</button>
         </form>
     </div>
 </th:block>

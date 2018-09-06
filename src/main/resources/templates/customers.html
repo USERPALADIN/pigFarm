@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Show All Customers</title>
+    <title>Все заказчики</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet"
@@ -19,16 +19,16 @@
     <div class="row">
         <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
             <ul class="nav nav-pills flex-column">
-                <li class="nav-item"><a class="nav-link " href="/admin/users_all">Users
+                <li class="nav-item"><a class="nav-link " href="/admin/users_all">Пользователи
                     <span class="sr-only">(current)</span>
                 </a></li>
-                <li class="nav-item"><a class="nav-link " href="/user/associates_all">Associates</a>
+                <li class="nav-item"><a class="nav-link " href="/user/associates_all">Сотрудники</a>
                 </li>
-                <li class="nav-item"><a class="nav-link active" href="/user/customers_all">Customers</a>
+                <li class="nav-item"><a class="nav-link active" href="/user/customers_all">Заказчики</a>
                 </li>
-                <li class="nav-item"><a class="nav-link " href="/user/products_all">Products</a>
+                <li class="nav-item"><a class="nav-link " href="/user/products_all">Продукты</a>
                 </li>
-                <li class="nav-item"><a class="nav-link " href="/user/order_details_all">Order Details</a>
+                <li class="nav-item"><a class="nav-link " href="/user/order_details_all">Заказы</a>
                 </li>
             </ul>
         </nav>
@@ -37,20 +37,20 @@
 <div style="margin-left:18%">
     <div class="notebook">
         <input type="radio" name="notebook1" id="notebook1_1" checked>
-        <label for="notebook1_1">Customers Table</label>
+        <label for="notebook1_1">Таблица заказчиков</label>
 
         <input type="radio" name="notebook1" id="notebook1_2">
-        <label for="notebook1_2">New Customer</label>
+        <label for="notebook1_2">Добавить заказчика</label>
 
         <div>
             <table class="table table-striped">
                 <thead>
                 <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">Organization</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Phone</th>
+                    <th scope="col">Организация</th>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Адрес</th>
+                    <th scope="col">Телефон</th>
                     <th scope="col" colspan=2>Action</th>
                 </tr>
                 </thead>
@@ -64,7 +64,7 @@
 
                     <td>
                         <a href="#" class="btn btn-primary btn-block" th:id="${customer.id}" data-toggle="modal"
-                           th:attr = "data-target='#'+${customer}">Update
+                           th:attr = "data-target='#'+${customer}">Обновить
                         </a>
                         <div class="modal fade" th:attr="id=${customer}" tabindex="-1" role="dialog" aria-labelledby="basicModal"
                              aria-hidden="true">
@@ -75,7 +75,7 @@
 
                                     <div class="modal-header">
 
-                                        <h4 class="modal-title" id="myModalLabel">Update Customer</h4>
+                                        <h4 class="modal-title" id="myModalLabel">Обновить заказчика</h4>
 
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 
@@ -95,34 +95,34 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="organizationName">Organization: </label>
+                                                <label for="organizationName">Организация: </label>
                                                 <input type="text" class="form-control" required  id="organizationName" name="organizationName"
                                                        th:value="${customer.organizationName}"/>
                                             </div>
                                             <div class="form-group">
-                                                <label for="nameManager">Name: </label>
+                                                <label for="nameManager">Имя: </label>
                                                 <input type="text" class="form-control" required id="nameManager" name="nameManager"
                                                        th:value="${customer.nameManager}"/>
                                             </div>
                                             <div class="form-group">
-                                                <label for="address">Address: </label>
+                                                <label for="address">Адрес: </label>
                                                 <input type="text" class="form-control" required id="address"
                                                        name="address"
                                                        th:value="${customer.address}"/>
                                             </div>
                                             <div class="form-group">
-                                                <label for="phone">Phone: </label>
+                                                <label for="phone">Телефон: </label>
                                                 <input type="number" class="form-control" required id="phone"
                                                        name="phone"
                                                        th:value="${customer.phone}"/>
                                             </div>
 
-                                            <button type="submit" class="btn btn-primary btn-block">Edit</button>
+                                            <button type="submit" class="btn btn-primary btn-block">Обновить</button>
                                         </form>
                                     </div>
 
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть
                                         </button>
                                     </div>
                                 </div>
@@ -131,7 +131,7 @@
                     </td>
                     <td>
                         <form th:action="@{/user/customer_delete/{customerId} (customerId=${customer.id})}">
-                            <button type="submit" class="btn btn-primary btn-block">Delete</button>
+                            <button type="submit" class="btn btn-primary btn-block">Удалить</button>
                         </form>
                     </td>
                 </tr>

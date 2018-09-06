@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Show All Order Details</title>
+    <title>Все заказы</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet"
@@ -19,16 +19,16 @@
     <div class="row">
         <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
             <ul class="nav nav-pills flex-column">
-                <li class="nav-item"><a class="nav-link " href="/admin/users_all">Users
+                <li class="nav-item"><a class="nav-link " href="/admin/users_all">Пользователи
                     <span class="sr-only">(current)</span>
                 </a></li>
-                <li class="nav-item"><a class="nav-link" href="/user/associates_all">Associates</a>
+                <li class="nav-item"><a class="nav-link" href="/user/associates_all">Сотрудники</a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="/user/customers_all">Customers</a>
+                <li class="nav-item"><a class="nav-link" href="/user/customers_all">Заказчики</a>
                 </li>
-                <li class="nav-item"><a class="nav-link " href="/user/products_all">Products</a>
+                <li class="nav-item"><a class="nav-link " href="/user/products_all">Продукты</a>
                 </li>
-                <li class="nav-item"><a class="nav-link active" href="/user/order_details_all">Order Details</a>
+                <li class="nav-item"><a class="nav-link active" href="/user/order_details_all">Заказы</a>
                 </li>
             </ul>
         </nav>
@@ -37,21 +37,21 @@
 <div style="margin-left:18%">
     <div class="notebook">
         <input type="radio" name="notebook1" id="notebook1_1" checked>
-        <label for="notebook1_1">Order Details Table</label>
+        <label for="notebook1_1">Таблица заказов</label>
 
         <input type="radio" name="notebook1" id="notebook1_2">
-        <label for="notebook1_2">New Order Detail</label>
+        <label for="notebook1_2">Добавить заказ</label>
 
         <div>
             <table class="table table-striped">
                 <thead>
                 <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">Customer</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Product</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Associate</th>
+                    <th scope="col">Заказчик</th>
+                    <th scope="col">Дата</th>
+                    <th scope="col">Продукт</th>
+                    <th scope="col">Количество</th>
+                    <th scope="col">Сотрудник</th>
                     <th scope="col" colspan=1>Action</th>
                 </tr>
                 </thead>
@@ -153,7 +153,7 @@
                     <!--</td>-->
                     <td>
                         <form th:action="@{/user/order_detail_delete/{orderDetailId} (orderDetailId =${orderDetail.id})}">
-                            <button type="submit" class="btn btn-primary btn-block">Delete</button>
+                            <button type="submit" class="btn btn-primary btn-block">Удалить</button>
                         </form>
                     </td>
                 </tr>
@@ -164,7 +164,7 @@
             <form id="register"  action="/user/order_detail_insert" method="post">
                 <div class="form group">
 
-                    <label for="customer">Customer: </label>
+                    <label for="customer">Заказчик: </label>
                     <div>
                         <select id="customer" name="customer">
                             <option th:each="customer : ${customers}"
@@ -174,12 +174,12 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="date">Date: </label>
+                    <label for="date">Дата: </label>
                     <input type="date" class="form-control"  required id="date" name="date"/>
                 </div>
                 <div class="form-group">
 
-                    <label for="product">Product: </label>
+                    <label for="product">Продукт: </label>
 
                     <div>
                         <select id="product" name="product">
@@ -190,11 +190,11 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="amount">Amount: </label>
+                    <label for="amount">Количетво: </label>
                     <input type="number" class="form-control "  required id="amount" name="amount"/>
                 </div>
                 <div class="form-group">
-                    <label for="associate">Associate: </label>
+                    <label for="associate">Сотрудник : </label>
                     <div>
                         <select id="associate" name="associate">
                             <option th:each="associate : ${associates}"
@@ -203,7 +203,7 @@
                         </select>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">Add</button>
+                <button type="submit" class="btn btn-primary btn-block">Добавить</button>
             </form>
         </div>
     </div>

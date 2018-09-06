@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Show All Users</title>
+    <title>Все пользователи</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet"
@@ -19,16 +19,16 @@
     <div class="row">
         <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
             <ul class="nav nav-pills flex-column">
-                <li class="nav-item"><a class="nav-link active" href="/admin/users_all">Users
+                <li class="nav-item"><a class="nav-link active" href="/admin/users_all">Пользователи
                     <span class="sr-only">(current)</span>
                 </a></li>
-                <li class="nav-item"><a class="nav-link" href="/user/associates_all">Associates</a>
+                <li class="nav-item"><a class="nav-link" href="/user/associates_all">Сотрудники</a>
                 </li>
-                <li class="nav-item"><a class="nav-link " href="/user/customers_all">Customers</a>
+                <li class="nav-item"><a class="nav-link " href="/user/customers_all">Заказчики</a>
                 </li>
-                <li class="nav-item"><a class="nav-link " href="/user/products_all">Products</a>
+                <li class="nav-item"><a class="nav-link " href="/user/products_all">Продукты</a>
                 </li>
-                <li class="nav-item"><a class="nav-link " href="/user/order_details_all">Order Details</a>
+                <li class="nav-item"><a class="nav-link " href="/user/order_details_all">Заказы</a>
                 </li>
             </ul>
         </nav>
@@ -37,19 +37,19 @@
 <div style="margin-left:18%">
     <div class="notebook">
         <input type="radio" name="notebook1" id="notebook1_1" checked>
-        <label for="notebook1_1">Users Table</label>
+        <label for="notebook1_1">Таблица пользователей</label>
 
         <input type="radio" name="notebook1" id="notebook1_2">
-        <label for="notebook1_2">New User</label>
+        <label for="notebook1_2">Добавить пользователя</label>
 
         <div>
             <table class="table table-striped">
                 <thead>
                 <tr>
                     <th scope="col">Id</th>
-                    <th scope="col"> Name</th>
-                    <th scope="col">Login</th>
-                    <th scope="col">Role</th>
+                    <th scope="col"> Имя</th>
+                    <th scope="col">Логин</th>
+                    <th scope="col">Роль</th>
                     <th scope="col" colspan=2>Action</th>
                 </tr>
                 </thead>
@@ -68,7 +68,7 @@
                         <!--</form>-->
                         <!-- Button trigger modal -->
                         <a href="#" class="btn btn-primary btn-block" th:id="${user.id}" data-toggle="modal"
-                          th:attr = "data-target='#'+${user}">Update
+                          th:attr = "data-target='#'+${user}">Обновить
                         </a>
                         <div class="modal fade" th:attr="id=${user}" tabindex="-1" role="dialog" aria-labelledby="basicModal"
                              aria-hidden="true">
@@ -79,7 +79,7 @@
 
                                     <div class="modal-header">
 
-                                        <h4 class="modal-title" id="myModalLabel">Update User </h4>
+                                        <h4 class="modal-title" id="myModalLabel">Обновить пользователя </h4>
 
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 
@@ -99,17 +99,17 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="name"> Name: </label>
+                                                <label for="name"> Имя: </label>
                                                 <input type="text" class="form-control"  required id="name" name="name"
                                                        th:value="${user.name}"/>
                                             </div>
                                             <div class="form-group">
-                                                <label for="login">Login: </label>
+                                                <label for="login">Логин: </label>
                                                 <input type="text" class="form-control" required id="login" name="login"
                                                        th:value="${user.login}"/>
                                             </div>
                                             <div class="form-group">
-                                                <label for="password">Password: </label>
+                                                <label for="password">Пароль: </label>
                                                 <input type="password" class="form-control" required id="password"
                                                        name="password"
                                                        th:value="${user.password}"/>
@@ -122,12 +122,12 @@
                                                             th:text="${roleFromDB.name}"></option>
                                                 </select>
                                             </div>
-                                            <button type="submit" class="btn btn-primary btn-block">Edit</button>
+                                            <button type="submit" class="btn btn-primary btn-block">Обновить</button>
                                         </form>
                                     </div>
 
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть
                                         </button>
                                     </div>
                                 </div>
@@ -136,7 +136,7 @@
                     </td>
                     <td>
                         <form th:action="@{/admin/delete_user/{userId} (userId =${user.id})}">
-                            <button type="submit" class="btn btn-primary btn-block">Delete</button>
+                            <button type="submit" class="btn btn-primary btn-block">Удалить</button>
                         </form>
                     </td>
                 </tr>

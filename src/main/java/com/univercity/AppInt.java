@@ -12,8 +12,8 @@ public class AppInt  extends SpringBootServletInitializer{
 		SpringApplication.run(AppInt.class, args);
 	}
 
-//	@Bean(initMethod = "init")
-//	public DataInitializer initializer() {
-//		return new DataInitializer();
-//	}
+	@Bean(initMethod = "init")
+	public DataInitializer initializer() {
+		return new DataInitializer();
+	}
 }
